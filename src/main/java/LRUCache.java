@@ -20,12 +20,11 @@ public class LRUCache<T> implements CacheInterface<T> {
     }
 
     public T get(final T key) {
-        if (cache.containsKey(key)) {
+        if(cache.containsKey(key)) {
             T value = cache.remove(key);
             cache.put(key, value);
             return value;
         }
-
         return null;
     }
 
