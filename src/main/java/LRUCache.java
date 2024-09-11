@@ -1,13 +1,13 @@
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class LRUCache implements CacheInterface<Integer> {
+public class LRUCache<T> implements CacheInterface<T> {
 
     private final int SIZE;
 
-    private final LinkedHashMap<Integer, Integer> cache;
+    private final LinkedHashMap<T, T> cache;
 
-    public LRUCache(int size) {
+    public LRUCache(final int size) {
         if(size < 1) {
             throw new IllegalArgumentException();
         }
@@ -19,17 +19,17 @@ public class LRUCache implements CacheInterface<Integer> {
         };
     }
 
-    public int get(int key) {
+    public T get(final T key) {
         if (cache.containsKey(key)) {
-            int value = cache.remove(key);
+            T value = cache.remove(key);
             cache.put(key, value);
             return value;
         }
 
-        return -1;
+        return null;
     }
 
-    public void put(int key, int value) {
+    public void put(final T key, final T value) {
         if(cache.containsKey(key)) {
             cache.remove(key);
         } else if(cache.size() == SIZE) {
@@ -38,11 +38,11 @@ public class LRUCache implements CacheInterface<Integer> {
         cache.put(key, value);
     }
 
-    public int getCapacity() {
+    public final int getCapacity() {
         return SIZE;
     }
 
-    public int getSize() {
+    public final int getSize() {
         return cache.size();
     }
 }

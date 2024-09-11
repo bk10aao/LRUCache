@@ -28,7 +28,7 @@ class LRUCacheTest {
         lruCache.put(2, 2);
         lruCache.put(3, 3);
 
-        assertEquals(-1, lruCache.get(4));
+        assertEquals(null, lruCache.get(4));
     }
 
     @Test
@@ -60,6 +60,6 @@ class LRUCacheTest {
         lruCache.put(4, 4);
         lruCache.put(5, 5);
         lruCache.put(6, 6);
-        assertEquals(-1, lruCache.get(1));
+        assertEquals(null, lruCache.get(1));
     }
 }

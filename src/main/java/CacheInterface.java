@@ -1,18 +1,18 @@
-public interface CacheInterface<Integer> {
+public interface CacheInterface<T> {
 
     /**
      * Get Object by key.
      * @param key - key of item to be returned.
-     * @return value associated to key, else -1.
+     * @return value associated to key, else null.
      */
-    int get(int key);
+    T get(T key);
 
     /**
      * Put item in map
      * @param key - key of item to be put in cache.
      * @param value - value to be associated to key
      */
-    void put(final int key, final int value);
+    void put(final T key, final T value);
 
     /**
      * Get capacity of Cache
