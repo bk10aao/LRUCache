@@ -22,13 +22,13 @@ class LRUCacheTest {
     }
 
     @Test
-    public void givenACache_withValues_1_2_3_onGet_4_returns_negative_1() {
+    public void givenACache_withValues_1_2_3_onGet_4_returns_null() {
         LRUCache<Integer> lruCache = new LRUCache<Integer>(10);
         lruCache.put(1, 1);
         lruCache.put(2, 2);
         lruCache.put(3, 3);
 
-        assertEquals(null, lruCache.get(4));
+        assertNull(lruCache.get(4));
     }
 
     @Test
@@ -52,7 +52,7 @@ class LRUCacheTest {
     }
 
     @Test
-    public void givenACacheOfSize_5_on_addingSizeValues_removesLeastUsedCacheValueOf_1_andReturns_negative_one_on_get_1() {
+    public void givenACacheOfSize_5_on_addingSizeValues_removesLeastUsedCacheValueOf_1_andReturns_on_get_1_returns_null() {
         LRUCache<Integer> lruCache = new LRUCache(5);
         lruCache.put(1, 1);
         lruCache.put(2, 2);
@@ -61,6 +61,6 @@ class LRUCacheTest {
         lruCache.put(5, 5);
         lruCache.put(6, 6);
 
-        assertEquals(null, lruCache.get(1));
+        assertNull(lruCache.get(1));
     }
 }
