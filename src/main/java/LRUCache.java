@@ -8,10 +8,9 @@ public class LRUCache<T>  {
     private final LinkedHashMap<T, T> cache;
 
     public LRUCache(int capacity) {
-        if(capacity < 1) {
+        if(capacity < 1)
             throw new IllegalArgumentException();
-        }
-        SIZE = capacity;
+        this.SIZE = capacity;
         cache = new LinkedHashMap<>() {
             @Override
             protected boolean removeEldestEntry(Map.Entry<T, T> eldest) {
